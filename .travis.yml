@@ -8,4 +8,12 @@ before_install:
 script: 
   - docker run dharmik86/docker-react npm run test -- --coverage
   
-
+deploy:
+    provider: elesticbeanstalk
+    region: "us-west-2"
+    app: "docker-react"
+    env: "Docker-env"
+    bucket_name: "elesticbeanstalk-us-west-2-20292929102"
+    bucket-path: "docker-react"
+    on:
+      branch: master
